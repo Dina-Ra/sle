@@ -1,3 +1,5 @@
+package ex3;
+
 import java.util.Arrays;
 
 public class Ex3 {
@@ -52,12 +54,12 @@ public class Ex3 {
         Arrays.stream(a).forEach(ar -> System.out.println(Arrays.toString(ar)));
 
         // находим норму матрицы
-        double norm_a = Ex3Z.getNormMatrix(a, b);
+        double norm_a = NormMatrix.getNormMatrix(a, b);
         System.out.println("\nнорма матрицы А = " + norm_a);
         System.out.println();
 
         int count_iterable = 0; // число итераций
-        double e = 0.01;        // точность
+        double eps = 0.01;        // точность
 
         double[] x = new double[b.length];
 
@@ -92,13 +94,13 @@ public class Ex3 {
                 }
             }
             System.out.println("точность - " + accuracy_x);
-            if (accuracy_x <= e) {
+            if (accuracy_x <= eps) {
                 break;
             }
         }
 
         System.out.println();
-        System.out.println("Число итераций = " + count_iterable + " при точности = " + e);
+        System.out.println("Число итераций = " + count_iterable + " при точности = " + eps);
 
     }
 }

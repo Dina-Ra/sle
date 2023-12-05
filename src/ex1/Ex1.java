@@ -1,6 +1,8 @@
+package ex1;
+
 import java.util.Arrays;
 
-public class Main {
+public class Ex1 {
     public static void main(String[] args) {
         double[] b = new double[]{-3, 30, -90, 12};
         double[][] a = new double[][]{

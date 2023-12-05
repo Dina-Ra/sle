@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Ex2 {
 
     public static void main(String[] args) {
-        double[][] dano = new double[][] {
+        double[][] A = new double[][] {
                 new double[]{-1, -1, 0, 0, 0},
                 new double[]{7, -17, -8, 0, 0},
                 new double[]{0, -9, 19, 8, 0},
@@ -18,20 +18,20 @@ public class Ex2 {
         double[] x = new double[d.length];
 
         /*
-            Заполним матрицу pq где каждая строка соответствует исходной строке
+            Заполним матрицу pq где
             столбец с индексом 0 - P
             столбец с индексом 1 - Q
          */
-        double[][] pq = new double[dano.length][2];
-        for (int i = 0; i < dano.length; i++) {
+        double[][] pq = new double[A.length][2];
+        for (int i = 0; i < A.length; i++) {
             double a = 0.0;
-            double b = dano[i][i];
+            double b = A[i][i];
             double c = 0.0;
             if (i > 0) {
-                a = dano[i][i-1];
+                a = A[i][i-1];
             }
-            if (i < dano.length - 1) {
-                c = dano[i][i+1];
+            if (i < A.length - 1) {
+                c = A[i][i+1];
             }
 
             if (a == 0.0) {
@@ -44,16 +44,17 @@ public class Ex2 {
         }
 
         // вывод в консоль полученных значений матрицы pq
+        System.out.println("Получены значения PQ для каждого из уравнений");
         Arrays.stream(pq).forEach(ar -> System.out.println(Arrays.toString(ar)));
 
-        for (int i = dano.length - 1; i >=0 ; i--) {
+        for (int i = A.length - 1; i >=0 ; i--) {
             if (pq[i][0] == 0) {
                 x[i] = pq[i][1];
             } else {
                 x[i] = pq[i][0] * x[i+1] + pq[i][1];
             }
         }
-
+        System.out.println("\nРешение СЛАУ:");
         System.out.println(Arrays.toString(x)); // вывод в консоль x
 
         /*
@@ -65,6 +66,4 @@ public class Ex2 {
             x5 = -1.0000000000000002
          */
     }
-
-
 }

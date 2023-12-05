@@ -11,13 +11,6 @@ public class Ex4 {
 
         double eps = 0.01;
 
-//        double[][] a = new double[][]{
-//                new double[]{4, 2, 1},
-//                new double[]{2, 5, 3},
-//                new double[]{1, 3, 6}};
-//
-//        double eps = 0.3;
-
         double[][] u_k = new double[][]{
                 new double[]{1, 0, 0},
                 new double[]{0, 1, 0},
